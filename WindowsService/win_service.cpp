@@ -231,10 +231,7 @@ bool WinService::RunService()
 		{ (LPSTR)m_strServiceName.data(), ServiceMain },
 		{ 0, 0 }
 	};
-	int err = 0;
-	if (!StartServiceCtrlDispatcher(serviceTable))
-		err = GetLastError();
-	return err;
+	return StartServiceCtrlDispatcher(serviceTable);
 }
 
 void WinService::OnServiceStopped()
